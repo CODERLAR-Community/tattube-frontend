@@ -51,27 +51,12 @@
             <div class="col-xl-3 col-sm-6 mb-3">
                 <div class="channels-card">
                     <div class="channels-card-image">
-                        <a href="#"><img class="img-fluid" src="/static/img/s1.png" alt=""></a>
+                        <a href="/channel/1"><img class="img-fluid" src="/static/img/s1.png" alt=""></a>
                         <div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Подписаться <strong>1.4M</strong></button></div>
                     </div>
                     <div class="channels-card-body">
                         <div class="channels-title">
-                            <a href="#">Название канала</a>
-                        </div>
-                        <div class="channels-view">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 mb-3">
-                <div class="channels-card">
-                    <div class="channels-card-image">
-                        <a href="#"><img class="img-fluid" src="/static/img/s2.png" alt=""></a>
-                        <div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Подписаться <strong>1.4M</strong></button></div>
-                    </div>
-                    <div class="channels-card-body">
-                        <div class="channels-title">
-                            <a href="#">Название канала</a>
+                            <a href="/channel/1">Название канала</a>
                         </div>
                         <div class="channels-view">
                         </div>
