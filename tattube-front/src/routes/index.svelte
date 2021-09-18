@@ -12,20 +12,6 @@
 
 <section>
 	<div class="container-fluid pb-0">
-		<div class="top-mobile-search">
-			<div class="row">
-				<div class="col-md-12">
-					<form class="mobile-search">
-						<div class="input-group">
-							<input type="text" placeholder="Search for..." class="form-control">
-							<div class="input-group-append">
-								<button type="button" class="btn btn-dark"><i class="fas fa-search"></i></button>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
 		<div class="video-block section-padding">
 			<div class="row">
 				<div class="col-md-12">
@@ -106,32 +92,3 @@
 		</div>
 	</div>
 </section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
-</style>

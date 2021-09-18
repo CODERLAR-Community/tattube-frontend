@@ -9,12 +9,12 @@
             <div class="col-xl-3 col-sm-6 mb-3">
                 <div class="channels-card">
                     <div class="channels-card-image">
-                        <a href="#"><img class="img-fluid" src="/static/img/s2.png" alt=""></a>
+                        <a href="/channel/1"><img class="img-fluid" src="/static/img/s2.png" alt=""></a>
                         <div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Подписаться <strong>1.4M</strong></button></div>
                     </div>
                     <div class="channels-card-body">
                         <div class="channels-title">
-                            <a href="#">Название канала</a>
+                            <a href="/channel/1">Название канала</a>
                         </div>
                         <div class="channels-view">
                         </div>
@@ -25,7 +25,7 @@
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center pagination-sm mb-4">
                 <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    <a class="page-link" href="" tabindex="-1">Previous</a>
                 </li>
                 <li class="page-item active"><a class="page-link" href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="#">2</a></li>

@@ -4,7 +4,7 @@
 <div>
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
-        <li class="nav-item" class:active={$page.path === '/'}>
+        <li class="nav-item active" class:active={$page.path === '/'}>
             <a class="nav-link" sveltekit:prefetch href="/">
                 <i class="fas fa-fw fa-home"></i>
                 <span>Главная</span>
@@ -22,9 +22,9 @@
                 <span>Категории</span>
             </a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="/categories">Видео</a>
-                <a class="dropdown-item" href="/categories">Музыка</a>
-                <a class="dropdown-item" href="/categories">ТВ</a>
+                <a class="dropdown-item" href="/search">Видео</a>
+                <a class="dropdown-item" href="/search">Музыка</a>
+                <a class="dropdown-item" href="/search">ТВ</a>
             </div>
         </li>
     </ul>
