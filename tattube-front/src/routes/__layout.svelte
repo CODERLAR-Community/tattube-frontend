@@ -1,17 +1,18 @@
 <script>
 	import Header from '$lib/header/Header.svelte';
+	import SideBar from '$lib/sideBar/SideBar.svelte';
+	import Footer from '$lib/footer/Footer.svelte';
 	import '../app.css';
 </script>
 
 <Header />
-
-<main>
-	<slot />
-</main>
-
-<footer>
-	<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-</footer>
+<div id="wrapper" style="margin-top: 55px">
+	<SideBar />
+	<div id="content-wrapper">
+		<slot />
+		<Footer />
+	</div>
+</div>
 
 <style>
 	main {
