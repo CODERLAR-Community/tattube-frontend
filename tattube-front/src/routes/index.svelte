@@ -46,13 +46,13 @@
 				<div class="col-xl-3 col-sm-6 mb-3">
 					<div class="video-card">
 						<div class="video-card-image">
-							<a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-							<a href="#"><img class="img-fluid" src="/static/img/v1.png" alt=""></a>
+							<a class="play-icon" href="/video/1"><i class="fas fa-play-circle"></i></a>
+							<a href="/video/1"><img class="img-fluid" src="/static/img/v1.png" alt=""></a>
 							<div class="time">3:50</div>
 						</div>
 						<div class="video-card-body">
 							<div class="video-title">
-								<a href="#">There are many variations of passages of Lorem</a>
+								<a href="/video/1">There are many variations of passages of Lorem</a>
 							</div>
 							<div class="video-page text-success">
 							</div>

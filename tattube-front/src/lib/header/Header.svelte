@@ -9,7 +9,7 @@
 		<button class="btn btn-link btn-sm text-secondary order-1 order-sm-0" id="sidebarToggle">
 			<i class="fas fa-bars"></i>
 		</button> &nbsp;&nbsp;
-		<a class="navbar-brand ml-5 " href="index.html"><img class="img-fluid" alt="" src="">TatTube</a>
+		<a class="navbar-brand ml-5 " href="/"><img class="img-fluid" alt="" src="">TatTube</a>
 		<!-- Navbar Search -->
 		<form class="d-none d-md-inline-block form-inline ml-5 mr-md-5 my-2 my-md-0 osahan-navbar-search">
 			<div class="input-group">
