@@ -10,7 +10,7 @@
 	<SideBar />
 	<div id="content-wrapper">
 		<slot />
-		<Footer />
+<!--		<Footer />-->
 	</div>
 </div>
 
