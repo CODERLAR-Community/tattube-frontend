@@ -13,7 +13,7 @@
                     <div class="single-video-author box mb-3">
                         <div class="float-right"><button class="btn btn-danger" type="button">Подписаться <strong>1.4M</strong></button> <button class="btn btn btn-outline-danger" type="button"><i class="fas fa-bell"></i></button></div>
                         <img class="img-fluid" src="img/s4.png" alt="">
-                        <p><a href="#"><strong>Osahan Channel</strong></a> <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></p>
+                        <p><a href="/channel/1"><strong>Название канала</strong></a> <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></p>
                         <small>10 августа, 2020</small>
                     </div>
                     <div class="single-video-info-content box mb-3">
