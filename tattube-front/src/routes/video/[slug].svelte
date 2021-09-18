@@ -8,13 +8,13 @@
                     </div>
                     <div class="single-video-title box mb-3">
                         <h2><a href="#">Contrary to popular belief, Lorem Ipsum (2020) is not.</a></h2>
-                        <p class="mb-0"><i class="fas fa-eye"></i> 2,729,347 views</p>
+                        <p class="mb-0"><i class="fas fa-eye"></i> 2,729,347 просмотров</p>
                     </div>
                     <div class="single-video-author box mb-3">
-                        <div class="float-right"><button class="btn btn-danger" type="button">Subscribe <strong>1.4M</strong></button> <button class="btn btn btn-outline-danger" type="button"><i class="fas fa-bell"></i></button></div>
+                        <div class="float-right"><button class="btn btn-danger" type="button">Подписаться <strong>1.4M</strong></button> <button class="btn btn btn-outline-danger" type="button"><i class="fas fa-bell"></i></button></div>
                         <img class="img-fluid" src="img/s4.png" alt="">
                         <p><a href="#"><strong>Osahan Channel</strong></a> <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></p>
-                        <small>Published on Aug 10, 2020</small>
+                        <small>10 августа, 2020</small>
                     </div>
                     <div class="single-video-info-content box mb-3">
                         <h6>Cast:</h6>
@@ -45,19 +45,6 @@
                                     336 x 280
                                 </div>
                             </div>
-                            <div class="main-title">
-                                <div class="btn-group float-right right-action">
-                                    <a href="#" class="right-action-link text-gray" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Sort by <i class="fa fa-caret-down" aria-hidden="true"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star"></i> &nbsp; Top Rated</a>
-                                        <a class="dropdown-item" href="#"><i class="fas fa-fw fa-signal"></i> &nbsp; Viewed</a>
-                                        <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
-                                    </div>
-                                </div>
-                                <h6>Up Next</h6>
-                            </div>
                         </div>
                         <div class="col-md-12">
                             <div class="video-card video-card-list">
@@ -81,10 +68,9 @@
                                         <a href="#">Here are many variati of passages of Lorem</a>
                                     </div>
                                     <div class="video-page text-success">
-                                        Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
                                     </div>
                                     <div class="video-view">
-                                        1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                                        1.8M просмотров &nbsp;<i class="fas fa-calendar-alt"></i> 11 месяцев назад
                                     </div>
                                 </div>
                             </div>
@@ -109,10 +95,9 @@
                                         <a href="#">Duis aute irure dolor in reprehenderit in.</a>
                                     </div>
                                     <div class="video-page text-success">
-                                        Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
                                     </div>
                                     <div class="video-view">
-                                        1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                                        1.8M просмотров &nbsp;<i class="fas fa-calendar-alt"></i> 11 месяцев назад
                                     </div>
                                 </div>
                             </div>
@@ -137,10 +122,9 @@
                                         <a href="#">Culpa qui officia deserunt mollit anim</a>
                                     </div>
                                     <div class="video-page text-success">
-                                        Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
                                     </div>
                                     <div class="video-view">
-                                        1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                                        1.8M просмотров &nbsp;<i class="fas fa-calendar-alt"></i> 11 месяцев назад
                                     </div>
                                 </div>
                             </div>
@@ -165,10 +149,9 @@
                                         <a href="#">Deserunt mollit anim id est laborum.</a>
                                     </div>
                                     <div class="video-page text-success">
-                                        Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
                                     </div>
                                     <div class="video-view">
-                                        1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                                        1.8M просмотров &nbsp;<i class="fas fa-calendar-alt"></i> 11 месяцев назад
                                     </div>
                                 </div>
                             </div>
@@ -193,10 +176,9 @@
                                         <a href="#">Exercitation ullamco laboris nisi ut.</a>
                                     </div>
                                     <div class="video-page text-success">
-                                        Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
                                     </div>
                                     <div class="video-view">
-                                        1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                                        1.8M просмотров &nbsp;<i class="fas fa-calendar-alt"></i> 11 месяцев назад
                                     </div>
                                 </div>
                             </div>
@@ -221,10 +203,9 @@
                                         <a href="#">There are many variations of passages of Lorem</a>
                                     </div>
                                     <div class="video-page text-success">
-                                        Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
                                     </div>
                                     <div class="video-view">
-                                        1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                                        1.8M просмотров &nbsp;<i class="fas fa-calendar-alt"></i> 11 месяцев назад
                                     </div>
                                 </div>
                             </div>
@@ -255,10 +236,9 @@
                                         <a href="#">Duis aute irure dolor in reprehenderit in.</a>
                                     </div>
                                     <div class="video-page text-success">
-                                        Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
                                     </div>
                                     <div class="video-view">
-                                        1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                                        1.8M просмотров &nbsp;<i class="fas fa-calendar-alt"></i> 11 месяцев назад
                                     </div>
                                 </div>
                             </div>
