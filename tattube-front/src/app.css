@@ -163,13 +163,13 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
 }
 .sidebar {
 	width: 90px !important;
-	background: #ff516b;
+	background: #67ce40;
 	/* Old browsers */
-	background: -moz-linear-gradient(-45deg, #ff516b 0%, #826cfd 100%);
+	background: -moz-linear-gradient(-45deg, #54a833 0%, #67ce40 100%);
 	/* FF3.6-15 */
-	background: -webkit-linear-gradient(-45deg, #ff516b 0%,#826cfd 100%);
+	background: -webkit-linear-gradient(-45deg, #54a833 0%, #67ce40 100%);
 	/* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(135deg, #ff516b 0%,#826cfd 100%);
+	background: linear-gradient(135deg, #478e2b 0%, rgba(103, 206, 64, 0.9) 100%);
 	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff516b', endColorstr='#826cfd',GradientType=1 );
 	/* IE6-9 fallback on horizontal gradient */
