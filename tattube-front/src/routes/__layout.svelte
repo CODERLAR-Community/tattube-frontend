@@ -3,6 +3,15 @@
 	import SideBar from '$lib/sideBar/SideBar.svelte';
 	import Footer from '$lib/footer/Footer.svelte';
 	import '../app.css';
+	import { createClient, setClient } from '@urql/svelte';
+	import { writable } from 'svelte/store';
+
+	const client = createClient({
+		url: '/',
+	});
+	setClient(client);
+
+	export let store = writable(null);
 </script>
 
 <Header />

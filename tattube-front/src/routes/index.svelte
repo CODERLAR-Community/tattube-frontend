@@ -1,9 +1,10 @@
-<script context="module">
-	export const prerender = true;
-</script>
+<!--<script context="module">-->
+<!--	export const prerender = true;-->
+<!--</script>-->
 
 <script>
 	import Counter from '$lib/Counter.svelte';
+	import { operationStore, query } from '@urql/svelte';
 </script>
 
 <svelte:head>
