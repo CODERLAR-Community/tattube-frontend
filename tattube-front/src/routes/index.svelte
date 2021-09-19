@@ -31,6 +31,22 @@
 		}
 	  `);
 	query($videos);
+
+	const channels = operationStore(`
+		query {
+          channels {
+            id
+            channelId
+            name
+            link
+            description
+            data
+          }
+        }
+	  `);
+	query($channels);
+
+
 	function getDate(date) {
 		let d = new Date(date);
 		return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`
@@ -81,43 +97,34 @@
 		</div>
 		<hr class="mt-0">
 		<div class="video-block section-padding">
+		{#if $channels.fetching}
+				Загрузка...
+		{:else}
 			<div class="row">
 				<div class="col-md-12">
 					<div class="main-title">
 						<h6>Каналы</h6>
 					</div>
 				</div>
-				<div class="col-xl-3 col-sm-6 mb-3">
-					<div class="channels-card">
-						<div class="channels-card-image">
-							<a href="#"><img class="img-fluid" src="/static/img/s1.png" alt=""></a>
-							<div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Подписаться <strong>1.4M</strong></button></div>
-						</div>
-						<div class="channels-card-body">
-							<div class="channels-title">
-								<a href="#">Название канала</a>
+				{#each $channels.data.channels as channel}
+					<div class="col-xl-3 col-sm-6 mb-3">
+						<div class="channels-card">
+							<div class="channels-card-image">
+								<a href={`/channel/${channel.channelId}`}><img class="img-fluid" src="/static/img/s2.png" alt=""></a>
+								<!--                                <div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Подписаться <strong>1.4M</strong></button></div>-->
 							</div>
-							<div class="channels-view">
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-3 col-sm-6 mb-3">
-					<div class="channels-card">
-						<div class="channels-card-image">
-							<a href="#"><img class="img-fluid" src="/static/img/s2.png" alt=""></a>
-							<div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Подписаться <strong>1.4M</strong></button></div>
-						</div>
-						<div class="channels-card-body">
-							<div class="channels-title">
-								<a href="#">Название канала</a>
-							</div>
-							<div class="channels-view">
+							<div class="channels-card-body">
+								<div class="channels-title">
+									<a href={`/channel/${channel.channelId}`}>{channel.name}</a>
+								</div>
+								<div class="channels-view">
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				{/each}
 			</div>
+		{/if}
 		</div>
 	</div>
 </section>
