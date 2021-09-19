@@ -83,7 +83,7 @@
                 {#if $video.fetching}
                     Загрузка...
                 {:else}
-                    {console.log($video.data.video)}
+<!--                    {console.log($video.data.video)}-->
 <!--                    {console.log(JSON.parse($video.data.video.data))}-->
                     <div class="single-video-left">
                         <div class="single-video">
@@ -96,7 +96,7 @@
                         </div>
                         <div class="single-video-author box mb-3">
 <!--                            <div class="float-right"><button class="btn btn-danger" type="button">Подписаться <strong>1.4M</strong></button> <button class="btn btn btn-outline-danger" type="button"><i class="fas fa-bell"></i></button></div>-->
-                            <img class="img-fluid" src="/static/img/s4.png" alt="">
+                            <img class="img-fluid" src={JSON.parse($video.data.video.channel.data).items[0].snippet.thumbnails.medium.url} alt="">
                             <p><a href={`/channel/${$video.data.video.channel?.channelId}`}><strong>{$video.data.video.channel?.name}</strong>
                             </a>
 <!--                                <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified">-->
