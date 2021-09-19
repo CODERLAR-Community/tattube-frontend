@@ -15,7 +15,7 @@
 		<button class="btn btn-link btn-sm text-secondary order-1 order-sm-0" id="sidebarToggle">
 			<i class="fas fa-bars"></i>
 		</button> &nbsp;&nbsp;
-		<a class="navbar-brand ml-5" style="font-weight: bold" href="/"><img class="img-fluid" alt="" src="">
+		<a class="navbar-brand" style="font-weight: bold" href="/"><img class="img-fluid" alt="" src="">
 			<span style="color: #54a833">Tat</span><span style="color: #2a2e2a;">Tube</span>
 		</a>
 		<!-- Navbar Search -->

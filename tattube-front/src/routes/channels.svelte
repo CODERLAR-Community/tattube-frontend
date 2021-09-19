@@ -105,7 +105,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="main-title">
-                        <h6>Последние видео</h6>
+                        <h6>Видео</h6>
                     </div>
                 </div>
                 {#each $videos.data.mainPageVideos.splice(0, 4) as video}

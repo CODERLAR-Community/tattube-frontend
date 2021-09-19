@@ -40,7 +40,7 @@
                     Загрузка...
                 {:else}
                     {#each $categories.data.categories as category}
-                        <a class="dropdown-item" href={`/search/${category.name}`}>{category.name}</a>
+                        <a class="dropdown-item" href={`/category/${category.categoryId}`}>{category.name}</a>
                     {/each}
                 {/if}
             </div>

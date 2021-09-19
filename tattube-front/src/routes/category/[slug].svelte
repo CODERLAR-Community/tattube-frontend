@@ -3,7 +3,7 @@
         let slug = page.params.slug;
         return {
             props: {
-                search: slug,
+                categoryId: slug,
             }
         };
     }
@@ -12,11 +12,11 @@
     import Counter from '$lib/Counter.svelte';
     import { operationStore, query } from '@urql/svelte';
 
-    export let search;
-    console.log(search);
+    export let categoryId;
+    console.log(categoryId);
     const videos = operationStore(`
-		query ($search: String){
-		  videos (search: $search, limit: 500) {
+		query ($categoryId: ID){
+		  videos (categoryId: $categoryId, limit: 500) {
 			id
 			videoId
 			title
@@ -37,7 +37,7 @@
 			data
 		  }
 		}
-	  `, {search});
+	  `, {categoryId});
     query($videos);
 
     const channels = operationStore(`
@@ -51,7 +51,7 @@
             data
           }
         }
-	  `, {search});
+	  `, {categoryId});
     query($channels);
 
 
@@ -110,63 +110,6 @@
                 {/if}
             </div>
         {/if}
-<!--        <nav aria-label="Page navigation example">-->
-<!--            <ul class="pagination justify-content-center pagination-sm mb-4">-->
-<!--                <li class="page-item disabled">-->
-<!--                    <a class="page-link" href="" tabindex="-1">Previous</a>-->
-<!--                </li>-->
-<!--                <li class="page-item active"><a class="page-link" href="#">1</a></li>-->
-<!--                <li class="page-item"><a class="page-link" href="#">2</a></li>-->
-<!--                <li class="page-item"><a class="page-link" href="#">3</a></li>-->
-<!--                <li class="page-item">-->
-<!--                    <a class="page-link" href="#">Next</a>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--        </nav>-->
-    </div>
-    <hr class="mt-0">
-    <div class="video-block section-padding">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="main-title">
-                    <h6>Каналы</h6>
-                </div>
-            </div>
-            {#if $channels.fetching}
-                <div class="col-xl-3 col-sm-6 mb-3">
-                    Загрузка...
-                </div>
-            {:else}
-                {#if $channels.data.channels}
-<!--                    {console.log($channels.data.channels)}-->
-                    {#if $channels.data.channels.length === 0}
-                            Каналов по вашему запросу не найдено(
-                    {:else}
-                        {#each $channels.data.channels as channel}
-                            <div class="col-xl-3 col-sm-6 mb-3">
-                                <div class="channels-card">
-                                    <div class="channels-card-image">
-                                        <a href={`/channel/${channel.channelId}`}><img class="img-fluid" src={JSON.parse(channel.data).items[0].snippet.thumbnails.medium.url} alt=""></a>
-                                        <!--                                <div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Подписаться <strong>1.4M</strong></button></div>-->
-                                    </div>
-                                    <div class="channels-card-body">
-                                        <div class="channels-title">
-                                            <a href={`/channel/${channel.channelId}`}>{channel.name}</a>
-                                        </div>
-                                        <div class="channels-view">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        {/each}
-                    {/if}
-                {:else}
-                    <div class="col-xl-3 col-sm-6 mb-3">
-                        Видео по вашему запросу не найдено(
-                    </div>
-                {/if}
-            {/if}
-        </div>
 <!--        <nav aria-label="Page navigation example">-->
 <!--            <ul class="pagination justify-content-center pagination-sm mb-4">-->
 <!--                <li class="page-item disabled">-->
