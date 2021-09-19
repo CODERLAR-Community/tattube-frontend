@@ -1,39 +1,82 @@
+<script context="module">
+    export async function load({ context, page }) {
+        let slug = page.params.slug;
+        return {
+            props: {
+                id: slug,
+            }
+        };
+    }
+</script>
+<script>
+    import Counter from '$lib/Counter.svelte';
+    import { operationStore, query } from '@urql/svelte';
+
+    export let id;
+
+    console.log(location.href);
+    const video = operationStore(`
+		query ($videoId: ID!){
+		  video (videoId: $videoId) {
+			id
+			videoId
+			title
+			description
+			channel {
+			  id
+			  channelId
+			  name
+			  link
+			  description
+			}
+			category {
+			  id
+			  categoryId
+			  name
+			  sort
+			}
+			data
+		  }
+		}
+	  `, { videoId: id });
+    query($video);
+    let videoData;
+    function getDate(date) {
+        let d = new Date(date);
+        return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`
+    }
+</script>
 <div class="container-fluid pb-0">
     <div class="video-block section-padding">
         <div class="row">
             <div class="col-md-8">
-                <div class="single-video-left">
-                    <div class="single-video">
-                        <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/8LWZSGNjuF0?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                {#if $video.fetching}
+                    Загрузка...
+                {:else}
+                    {console.log($video.data.video)}
+                    {console.log(JSON.parse($video.data.video.data))}
+                    <div class="single-video-left">
+                        <div class="single-video">
+                            <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/8LWZSGNjuF0?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        </div>
+                        <div class="single-video-title box mb-3">
+                            <h2><a>{$video.data.video.title}.</a></h2>
+                            <p class="mb-0"><i class="fas fa-eye"></i> {JSON.parse($video.data.video.data).items[0].statistics.viewCount} просмотров</p>
+                            <small>{getDate(JSON.parse($video.data.video.data).items[0].snippet.publishedAt)}</small>
+                        </div>
+                        <div class="single-video-author box mb-3">
+<!--                            <div class="float-right"><button class="btn btn-danger" type="button">Подписаться <strong>1.4M</strong></button> <button class="btn btn btn-outline-danger" type="button"><i class="fas fa-bell"></i></button></div>-->
+                            <img class="img-fluid" src="/static/img/s4.png" alt="">
+                            <p><a href={`/channel/${$video.data.video.channel.channelId}`}><strong>{$video.data.video.channel.name}</strong></a> <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></p>
+                            <small>{$video.data.video.channel.description}</small>
+                        </div>
+                        {#if $video.data.video.description}
+                            <div class="single-video-info-content box mb-3">
+                                <p>{$video.data.video.description}</p>
+                            </div>
+                        {/if}
                     </div>
-                    <div class="single-video-title box mb-3">
-                        <h2><a href="#">Contrary to popular belief, Lorem Ipsum (2020) is not.</a></h2>
-                        <p class="mb-0"><i class="fas fa-eye"></i> 2,729,347 просмотров</p>
-                    </div>
-                    <div class="single-video-author box mb-3">
-                        <div class="float-right"><button class="btn btn-danger" type="button">Подписаться <strong>1.4M</strong></button> <button class="btn btn btn-outline-danger" type="button"><i class="fas fa-bell"></i></button></div>
-                        <img class="img-fluid" src="img/s4.png" alt="">
-                        <p><a href="/channel/1"><strong>Название канала</strong></a> <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></p>
-                        <small>10 августа, 2020</small>
-                    </div>
-                    <div class="single-video-info-content box mb-3">
-                        <h6>Cast:</h6>
-                        <p>Nathan Drake , Victor Sullivan , Sam Drake , Elena Fisher</p>
-                        <h6>Category :</h6>
-                        <p>Gaming , PS4 Exclusive , Gameplay , 1080p</p>
-                        <h6>About :</h6>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved overVarious versions have evolved over the years, sometimes </p>
-                        <h6>Tags :</h6>
-                        <p class="tags mb-0">
-                            <span><a href="#">Uncharted 4</a></span>
-                            <span><a href="#">Playstation 4</a></span>
-                            <span><a href="#">Gameplay</a></span>
-                            <span><a href="#">1080P</a></span>
-                            <span><a href="#">ps4Share</a></span>
-                            <span><a href="#">+ 6</a></span>
-                        </p>
-                    </div>
-                </div>
+                {/if}
             </div>
             <div class="col-md-4">
                 <div class="single-video-right">

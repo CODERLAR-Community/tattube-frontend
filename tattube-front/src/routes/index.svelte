@@ -57,10 +57,10 @@
 						<div class="col-xl-3 col-sm-6 mb-3">
 							<div class="video-card">
 <!--								{console.log(JSON.parse(video.data))}-->
-								<div class="video-card-image">
+								<div class="video-card-image" >
 									<a class="play-icon" href={`/video/${video.videoId}`}><i class="fas fa-play-circle"></i></a>
-									<a href={`/video/${video.videoId}`}><img class="img-fluid" src={JSON.parse(video.data).items[0].snippet.thumbnails.high.url} alt=""></a>
-									<div class="time">3:50</div>
+									<a href={`/video/${video.videoId}`}><img class="img-fluid" height={`${JSON.parse(video.data).items[0].snippet.thumbnails.high.height}`} src={JSON.parse(video.data).items[0].snippet.thumbnails.medium.url} alt=""></a>
+<!--									<div class="time">3:50</div>-->
 								</div>
 								<div class="video-card-body">
 									<div class="video-title">
@@ -69,7 +69,7 @@
 									<div class="video-page text-success">
 									</div>
 									<div class="video-view">
-										1.8M просмотров &nbsp;<i class="fas fa-calendar-alt"></i>
+										{JSON.parse(video.data).items[0].statistics.viewCount} карау &nbsp;<i class="fas fa-calendar-alt"></i>
 										{getDate(JSON.parse(video.data).items[0].snippet.publishedAt)}
 									</div>
 								</div>
