@@ -46,7 +46,6 @@
 	  `);
 	query($channels);
 
-
 	function getDate(date) {
 		let d = new Date(date);
 		return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`
@@ -67,7 +66,9 @@
 					</div>
 				</div>
 				{#if $videos.fetching}
+					<div class="col-xl-3 col-sm-6 mb-3">
 						Загрузка...
+					</div>
 				{:else}
 					{#each $videos.data.mainPageVideos as video}
 						<div class="col-xl-3 col-sm-6 mb-3">
@@ -98,7 +99,9 @@
 		<hr class="mt-0">
 		<div class="video-block section-padding">
 		{#if $channels.fetching}
+			<div class="col-xl-3 col-sm-6 mb-3">
 				Загрузка...
+			</div>
 		{:else}
 			<div class="row">
 				<div class="col-md-12">

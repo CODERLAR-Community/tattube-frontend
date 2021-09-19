@@ -51,7 +51,9 @@
 
 <div class="container-fluid pb-0">
     {#if $channels.fetching}
-        Загрузка...
+        <div class="video-block section-padding">
+            Загрузка...
+        </div>
     {:else}
         <div class="video-block section-padding">
             <div class="row">
@@ -95,7 +97,9 @@
     {/if}
     <hr>
     {#if $videos.fetching}
-        Загрузка...
+        <div class="video-block section-padding">
+            Загрузка...
+        </div>
     {:else}
         <div class="video-block section-padding">
             <div class="row">

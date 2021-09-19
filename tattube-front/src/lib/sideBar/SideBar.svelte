@@ -1,5 +1,19 @@
 <script>
     import { page } from '$app/stores';
+    import Counter from '$lib/Counter.svelte';
+    import { operationStore, query } from '@urql/svelte';
+
+    const categories = operationStore(`
+		query {
+		  categories {
+			id
+			name
+			categoryId
+			sort
+		  }
+		}
+	  `);
+    query($categories);
 </script>
 <div>
     <!-- Sidebar -->
@@ -22,9 +36,13 @@
                 <span>Категории</span>
             </a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="/search">Видео</a>
-                <a class="dropdown-item" href="/search">Музыка</a>
-                <a class="dropdown-item" href="/search">ТВ</a>
+                {#if $categories.fetching}
+                    Загрузка...
+                {:else}
+                    {#each $categories.data.categories as category}
+                        <a class="dropdown-item" href="/search">{category.name}y</a>
+                    {/each}
+                {/if}
             </div>
         </li>
     </ul>

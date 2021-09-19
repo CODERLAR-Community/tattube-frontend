@@ -14,8 +14,6 @@
 
     export let id;
 
-    console.log(location.href);
-
     const videos = operationStore(`
 		query {
 		  mainPageVideos (limit: 10) {
@@ -71,10 +69,12 @@
 
 <div class="single-channel-page" id="content-wrapper">
     {#if $channel.fetching}
-        Загрузка...
+        <div class="col-xl-3 col-sm-6 mb-3">
+            Загрузка...
+        </div>
     {:else}
-        {console.log($channel.data.channel)}
-        {console.log(JSON.parse($channel.data.channel.data))}
+<!--        {console.log($channel.data.channel)}-->
+<!--        {console.log(JSON.parse($channel.data.channel.data))}-->
         <div class="single-channel-image">
             <img class="img-fluid" alt="" src="/static/img/channel-banner.png">
             <div class="channel-profile">

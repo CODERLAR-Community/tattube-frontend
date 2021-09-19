@@ -14,8 +14,6 @@
 
     export let id;
 
-    console.log(location.href);
-
     const videos = operationStore(`
 		query {
 		  mainPageVideos (limit: 10) {

@@ -1,6 +1,12 @@
 <script>
 	import { page } from '$app/stores';
 	import logo from './svelte-logo.svg';
+	import { goto, invalidate, prefetch, prefetchRoutes } from '$app/navigation';
+
+	let seacrhText;
+	function handleOnSubmit(text) {
+		goto(`/search/${text}`)
+	}
 </script>
 
 <header>
@@ -13,9 +19,12 @@
 			<span style="color: #54a833">Tat</span><span style="color: #2a2e2a;">Tube</span>
 		</a>
 		<!-- Navbar Search -->
-		<form class="d-none d-md-inline-block form-inline ml-5 mr-md-5 my-2 my-md-0 osahan-navbar-search">
+		<form
+			class="d-none d-md-inline-block form-inline ml-5 mr-md-5 my-2 my-md-0 osahan-navbar-search"
+			on:submit={handleOnSubmit(seacrhText)}
+		>
 			<div class="input-group">
-				<input type="text" class="form-control" placeholder="Поиск...">
+				<input type="text" class="form-control" bind:value={seacrhText} placeholder="Поиск...">
 				<div class="input-group-append">
 					<button class="btn btn-light" type="button">
 						<i class="fas fa-search"></i>
