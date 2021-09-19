@@ -124,7 +124,7 @@
                             <h6>Видео</h6>
                         </div>
                     </div>
-                    {#each $channel.data.channel.videoSet as video}
+                    {#each $channel.data.channel.videoSet.sort((a, b) => (Date(JSON.parse(a.data).items[0].snippet.publishedAt) > Date(JSON.parse(b.data).items[0].snippet.publishedAt)) ? 1 : -1) as video}
                         <div class="col-xl-3 col-sm-6 mb-3">
                             <div class="video-card">
                                 <div class="video-card-image">
@@ -147,19 +147,19 @@
                         </div>
                     {/each}
                 </div>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center pagination-sm mb-0">
-                        <li class="page-item disabled">
-                            <a tabindex="-1" href="#" class="page-link">Previous</a>
-                        </li>
-                        <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item"><a href="#" class="page-link">3</a></li>
-                        <li class="page-item">
-                            <a href="#" class="page-link">Next</a>
-                        </li>
-                    </ul>
-                </nav>
+<!--                <nav aria-label="Page navigation example">-->
+<!--                    <ul class="pagination justify-content-center pagination-sm mb-0">-->
+<!--                        <li class="page-item disabled">-->
+<!--                            <a tabindex="-1" href="#" class="page-link">Previous</a>-->
+<!--                        </li>-->
+<!--                        <li class="page-item active"><a href="#" class="page-link">1</a></li>-->
+<!--                        <li class="page-item"><a href="#" class="page-link">2</a></li>-->
+<!--                        <li class="page-item"><a href="#" class="page-link">3</a></li>-->
+<!--                        <li class="page-item">-->
+<!--                            <a href="#" class="page-link">Next</a>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </nav>-->
             </div>
         </div>
     {/if}

@@ -80,19 +80,19 @@
                     </div>
                 {/each}
             </div>
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center pagination-sm mb-4">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="" tabindex="-1">Previous</a>
-                    </li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
+<!--            <nav aria-label="Page navigation example">-->
+<!--                <ul class="pagination justify-content-center pagination-sm mb-4">-->
+<!--                    <li class="page-item disabled">-->
+<!--                        <a class="page-link" href="" tabindex="-1">Previous</a>-->
+<!--                    </li>-->
+<!--                    <li class="page-item active"><a class="page-link" href="#">1</a></li>-->
+<!--                    <li class="page-item"><a class="page-link" href="#">2</a></li>-->
+<!--                    <li class="page-item"><a class="page-link" href="#">3</a></li>-->
+<!--                    <li class="page-item">-->
+<!--                        <a class="page-link" href="#">Next</a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </nav>-->
         </div>
     {/if}
     <hr>
@@ -114,7 +114,7 @@
                             <div class="video-card-image">
                                 <a class="play-icon" href={`/video/${video.videoId}`}><i class="fas fa-play-circle"></i></a>
                                 <a href={`/video/${video.videoId}`}><img class="img-fluid" src={JSON.parse(video.data).items[0].snippet.thumbnails.medium.url}  alt=""></a>
-                                <div class="time">3:50</div>
+<!--                                <div class="time">3:50</div>-->
                             </div>
                             <div class="video-card-body">
                                 <div class="video-title">
