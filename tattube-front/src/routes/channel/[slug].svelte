@@ -1,3 +1,73 @@
+<script context="module">
+    export async function load({ context, page }) {
+        let slug = page.params.slug;
+        return {
+            props: {
+                id: slug,
+            }
+        };
+    }
+</script>
+<script>
+    import Counter from '$lib/Counter.svelte';
+    import { operationStore, query } from '@urql/svelte';
+
+    export let id;
+
+    console.log(location.href);
+
+    const videos = operationStore(`
+		query {
+		  mainPageVideos (limit: 10) {
+			id
+			videoId
+			title
+			description
+			channel {
+			  id
+			  channelId
+			  name
+			  link
+			  description
+			}
+			category {
+			  id
+			  categoryId
+			  name
+			  sort
+			}
+			data
+		  }
+		}
+	  `);
+    query($videos);
+
+    const channel = operationStore(`
+		query ($channelId: ID!){
+          channel (channelId: $channelId) {
+            id
+            channelId
+            name
+            link
+            description
+            videoSet {
+              id
+              title
+              videoId
+              link
+              data
+            }
+          }
+        }
+	  `, { channelId: id });
+    query($channel);
+
+    function getDate(date) {
+        let d = new Date(date);
+        return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`
+    }
+</script>
+
 <div class="single-channel-page" id="content-wrapper">
     <div class="single-channel-image">
         <img class="img-fluid" alt="" src="/static/img/channel-banner.png">
@@ -13,7 +83,7 @@
     </div>
     <div class="single-channel-nav">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="channel-brand" href="#">Название канала <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></a>
+            <a class="channel-brand" href="#">{$channel.data.channel.name} <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -29,9 +99,9 @@
 <!--                        <i class="fas fa-search"></i>-->
 <!--                    </button> &nbsp;&nbsp;&nbsp;-->
 <!--                </form>-->
-                <button class="btn btn-outline-danger btn-sm" type="button">
-                    Subscribe <strong>1.4M</strong>
-                </button>
+<!--                <button class="btn btn-outline-danger btn-sm" type="button">-->
+<!--                    Subscribe <strong>1.4M</strong>-->
+<!--                </button>-->
             </div>
         </nav>
     </div>
@@ -40,38 +110,31 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="main-title">
-                        <div class="btn-group float-right right-action">
-                            <a href="#" class="right-action-link text-gray" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Sort by <i class="fa fa-caret-down" aria-hidden="true"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star"></i> &nbsp; Top Rated</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-signal"></i> &nbsp; Viewed</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
-                            </div>
-                        </div>
                         <h6>Видео</h6>
                     </div>
                 </div>
-                <div class="col-xl-3 col-sm-6 mb-3">
-                    <div class="video-card">
-                        <div class="video-card-image">
-                            <a class="play-icon" href="/video/1"><i class="fas fa-play-circle"></i></a>
-                            <a href="/video/1"><img class="img-fluid" src="/static/img/v1.png" alt=""></a>
-                            <div class="time">3:50</div>
-                        </div>
-                        <div class="video-card-body">
-                            <div class="video-title">
-                                <a href="/video/1">There are many variations of passages of Lorem</a>
+                {#each $channel.data.channel.videoSet as video}
+                    <div class="col-xl-3 col-sm-6 mb-3">
+                        <div class="video-card">
+                            <div class="video-card-image">
+                                <a class="play-icon" href={`/video/${video.videoId}`}><i class="fas fa-play-circle"></i></a>
+                                <a href={`/video/${video.videoId}`}><img class="img-fluid" src="/static/img/v1.png" alt=""></a>
+                                <div class="time">3:50</div>
                             </div>
-                            <div class="video-page text-success">
-                            </div>
-                            <div class="video-view">
-                                1.8M просмотров &nbsp;<i class="fas fa-calendar-alt"></i> 11 месяцев назад
+                            <div class="video-card-body">
+                                <div class="video-title">
+                                    <a href={`/video/${video.videoId}`}>{video.title}</a>
+                                </div>
+                                <div class="video-page text-success">
+                                </div>
+                                <div class="video-view">
+                                    {JSON.parse(video.data).items[0].statistics.viewCount} карау &nbsp;<i class="fas fa-calendar-alt"></i>
+                                    {getDate(JSON.parse(video.data).items[0].snippet.publishedAt)}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                {/each}
             </div>
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center pagination-sm mb-0">

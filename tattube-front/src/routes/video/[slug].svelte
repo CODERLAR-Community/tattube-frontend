@@ -73,6 +73,7 @@
         return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`
     }
 </script>
+
 <div class="container-fluid pb-0">
     <div class="video-block section-padding">
         <div class="row">
@@ -94,8 +95,8 @@
                         <div class="single-video-author box mb-3">
 <!--                            <div class="float-right"><button class="btn btn-danger" type="button">Подписаться <strong>1.4M</strong></button> <button class="btn btn btn-outline-danger" type="button"><i class="fas fa-bell"></i></button></div>-->
                             <img class="img-fluid" src="/static/img/s4.png" alt="">
-                            <p><a href={`/channel/${$video.data.video.channel.channelId}`}><strong>{$video.data.video.channel.name}</strong></a> <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></p>
-                            <small>{$video.data.video.channel.description}</small>
+                            <p><a href={`/channel/${$video.data.video.channel?.channelId}`}><strong>{$video.data.video.channel?.name}</strong></a> <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></p>
+                            <small>{$video.data.video.channel?.description}</small>
                         </div>
                         {#if $video.data.video.description}
                             <div class="single-video-info-content box mb-3">
