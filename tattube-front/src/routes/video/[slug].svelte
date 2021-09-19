@@ -15,6 +15,33 @@
     export let id;
 
     console.log(location.href);
+
+    const videos = operationStore(`
+		query {
+		  mainPageVideos (limit: 10) {
+			id
+			videoId
+			title
+			description
+			channel {
+			  id
+			  channelId
+			  name
+			  link
+			  description
+			}
+			category {
+			  id
+			  categoryId
+			  name
+			  sort
+			}
+			data
+		  }
+		}
+	  `);
+    query($videos);
+
     const video = operationStore(`
 		query ($videoId: ID!){
 		  video (videoId: $videoId) {
@@ -53,11 +80,11 @@
                 {#if $video.fetching}
                     Загрузка...
                 {:else}
-                    {console.log($video.data.video)}
-                    {console.log(JSON.parse($video.data.video.data))}
+<!--                    {console.log($video.data.video)}-->
+<!--                    {console.log(JSON.parse($video.data.video.data))}-->
                     <div class="single-video-left">
                         <div class="single-video">
-                            <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/8LWZSGNjuF0?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            <iframe width="100%" height="500" src={`https://www.youtube-nocookie.com/embed/${id}?rel=0`} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                         </div>
                         <div class="single-video-title box mb-3">
                             <h2><a>{$video.data.video.title}.</a></h2>
@@ -81,55 +108,40 @@
             <div class="col-md-4">
                 <div class="single-video-right">
                     <div class="row">
+<!--                        <div class="col-md-12">-->
+<!--                            <div class="adblock">-->
+<!--                                <div class="img">-->
+<!--                                    Google AdSense<br>-->
+<!--                                    336 x 280-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
                         <div class="col-md-12">
-                            <div class="adblock">
-                                <div class="img">
-                                    Google AdSense<br>
-                                    336 x 280
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="video-card video-card-list">
-                                <div class="video-card-image">
-                                    <a class="play-icon" href="/video/2"><i class="fas fa-play-circle"></i></a>
-                                    <a href="/video/2"><img class="img-fluid" src="/static/img/v1.png" alt=""></a>
-                                    <div class="time">3:50</div>
-                                </div>
-                                <div class="video-card-body">
-                                    <div class="video-title">
-                                        <a href="/video/2">Here are many variati of passages of Lorem</a>
-                                    </div>
-                                    <div class="video-page text-success">
-                                    </div>
-                                    <div class="video-view">
-                                        1.8M просмотров &nbsp;<i class="fas fa-calendar-alt"></i> 11 месяцев назад
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="adblock mt-0">
-                                <div class="img">
-                                    Google AdSense<br>
-                                    336 x 280
-                                </div>
-                            </div>
-                            <div class="video-card video-card-list">
-                                <div class="video-card-image">
-                                    <a class="play-icon" href="/video/2"><i class="fas fa-play-circle"></i></a>
-                                    <a href="/video/2"><img class="img-fluid" src="/static/img/v2.png" alt=""></a>
-                                    <div class="time">3:50</div>
-                                </div>
-                                <div class="video-card-body">
-                                    <div class="video-title">
-                                        <a href="/video/2">Duis aute irure dolor in reprehenderit in.</a>
-                                    </div>
-                                    <div class="video-page text-success">
-                                    </div>
-                                    <div class="video-view">
-                                        1.8M просмотров &nbsp;<i class="fas fa-calendar-alt"></i> 11 месяцев назад
-                                    </div>
-                                </div>
-                            </div>
+                            {#if $videos.fetching}
+                                Загрузка...
+                            {:else}
+                                {#each $videos.data.mainPageVideos as videoSug}
+                                    {#if id !== videoSug.videoId}
+                                        <div class="video-card video-card-list">
+                                            <div class="video-card-image">
+                                                <a class="play-icon" href={`/video/${videoSug.videoId}`}><i class="fas fa-play-circle"></i></a>
+                                                <a href={`/video/${videoSug.videoId}`}><img class="img-fluid" src={JSON.parse(videoSug.data).items[0].snippet.thumbnails.medium.url} alt=""></a>
+                                                <!--                                            <div class="time">3:50</div>-->
+                                            </div>
+                                            <div class="video-card-body">
+                                                <div class="video-title">
+                                                    <a href={`/video/${videoSug.videoId}`}>{videoSug.title}</a>
+                                                </div>
+                                                <div class="video-page text-success">
+                                                </div>
+                                                <div class="video-view">
+                                                    {JSON.parse(videoSug.data).items[0].statistics.viewCount} карау &nbsp;<i class="fas fa-calendar-alt"></i> {getDate(JSON.parse(videoSug.data).items[0].snippet.publishedAt)}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {/if}
+                                {/each}
+                            {/if}
                         </div>
                     </div>
                 </div>
