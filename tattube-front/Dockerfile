@@ -18,4 +18,3 @@ EXPOSE 3000
 ENV HOST=0.0.0.0
 
 RUN npm run-script build
-CMD [ "node", "build/index.js"]
