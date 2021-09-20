@@ -7,7 +7,7 @@
 	import { writable } from 'svelte/store';
 
 	const client = createClient({
-		url: 'http://82.146.60.137/graphql/',
+		url: 'http://tattube.coderlar.space/graphql/',
 	});
 	setClient(client);
 
