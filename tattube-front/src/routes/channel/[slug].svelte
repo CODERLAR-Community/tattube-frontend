@@ -76,7 +76,7 @@
 <!--        {console.log($channel.data.channel)}-->
 <!--        {console.log(JSON.parse($channel.data.channel.data))}-->
         <div class="single-channel-image">
-            <img class="img-fluid" alt="" src="/static/img/channel-banner.png">
+            <img class="img-fluid" alt="" src="../../../static/img/channel-banner.png">
             <div class="channel-profile">
                 <img class="channel-profile-img" alt="" src={JSON.parse($channel.data.channel.data).items[0].snippet.thumbnails.medium.url}>
 <!--                <div class="social hidden-xs">-->
