@@ -1,5 +1,4 @@
 <script>
-    import Counter from '$lib/Counter.svelte';
     import { operationStore, query } from '@urql/svelte';
 
     const videos = operationStore(`
