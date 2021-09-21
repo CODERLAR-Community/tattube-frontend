@@ -1,5 +1,6 @@
 /** @type {import('@sveltejs/kit').Config} */
-import adapter from '@sveltejs/adapter-static';
+import node from '@sveltejs/adapter-node'
+// import adapter from '@sveltejs/adapter-static';
 const config = {
 	kit: {
 		// hydrate the <div id="svelte"> element in src/app.html
@@ -9,12 +10,7 @@ const config = {
 				exclude: ['@urql/svelte'],
 			}
 		},
-		adapter: adapter({
-			// default options are shown
-			pages: 'build',
-			assets: 'build/static',
-			fallback: null
-		})
+		adapter: node(),
 	}
 };
 
