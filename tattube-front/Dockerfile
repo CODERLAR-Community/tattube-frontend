@@ -1,21 +1,24 @@
-FROM node:14-alpine
-
-RUN mkdir -p /app
-WORKDIR /app
+FROM mhart/alpine-node:12
 
 # install dependencies
-COPY package.json package-lock.json /app/
-RUN npm install
-
-# copy the project code
-COPY . /app/
-
-# define the default command to run when starting the container
+WORKDIR /app
+COPY package.json package-lock.json ./
 RUN npm ci
 
-EXPOSE 3000
-
-ENV HOST=0.0.0.0
+# Copy all local files into the image.
+COPY . .
 
 RUN npm run build
-CMD ["node", "tattube-front/build/index.js"]
+
+###
+# Only copy over the Node pieces we need
+# ~> Saves 35MB
+###
+FROM mhart/alpine-node:slim-12
+
+WORKDIR /app
+COPY --from=0 /app .
+COPY . .
+
+EXPOSE 3000
+CMD ["node", "./build"]
