@@ -38,7 +38,7 @@
             <div class="dropdown-menu">
                 {#if $categories.fetching}
                     Загрузка...
-                {:else}
+                {:else if $categories.data}
                     {#each $categories.data.categories as category}
                         <a class="dropdown-item" href={`/category/${category.categoryId}`}>{category.name}</a>
                     {/each}

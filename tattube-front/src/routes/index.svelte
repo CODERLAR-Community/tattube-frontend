@@ -53,7 +53,7 @@
 </script>
 
 <svelte:head>
-	<title>TatTube</title>
+	<title>TizTap</title>
 </svelte:head>
 
 <section>
@@ -69,7 +69,7 @@
 					<div class="col-xl-3 col-sm-6 mb-3">
 						Загрузка...
 					</div>
-				{:else}
+				{:else if $videos.data}
 					{#each $videos.data.mainPageVideos as video}
 						<div class="col-xl-3 col-sm-6 mb-3">
 							<div class="video-card">
@@ -102,7 +102,7 @@
 			<div class="col-xl-3 col-sm-6 mb-3">
 				Загрузка...
 			</div>
-		{:else}
+		{:else if $channels.data}
 			<div class="row">
 				<div class="col-md-12">
 					<div class="main-title">

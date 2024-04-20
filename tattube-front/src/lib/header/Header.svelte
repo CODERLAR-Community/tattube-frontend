@@ -16,7 +16,7 @@
 			<i class="fas fa-bars"></i>
 		</button> &nbsp;&nbsp;
 		<a class="navbar-brand" style="font-weight: bold" href="/"><img class="img-fluid" alt="" src="">
-			<span style="color: #54a833">Tat</span><span style="color: #2a2e2a;">Tube</span>
+			<span style="color: #54a833">Tiz</span><span style="color: #2a2e2a;">Tap</span>
 		</a>
 		<!-- Navbar Search -->
 		<form
