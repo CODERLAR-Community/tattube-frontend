@@ -7,7 +7,7 @@
 	import { writable } from 'svelte/store';
 
 	const client = createClient({
-		url: 'http://tiztap.tatar/graphql/',
+		url: 'https://tiztap.tatar/graphql/',
 	});
 	setClient(client);
 
