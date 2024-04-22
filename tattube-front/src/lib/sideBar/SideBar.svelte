@@ -21,19 +21,19 @@
         <li class="nav-item active" class:active={$page.path === '/'}>
             <a class="nav-link" sveltekit:prefetch href="/">
                 <i class="fas fa-fw fa-home"></i>
-                <span>Главная</span>
+                <span>Төп бит</span>
             </a>
         </li>
         <li class="nav-item" class:active={$page.path === '/channels'}>
             <a class="nav-link" sveltekit:prefetch href="/channels">
                 <i class="fas fa-fw fa-users"></i>
-                <span>Каналы</span>
+                <span>Каналлар</span>
             </a>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-fw fa-list-alt"></i>
-                <span>Категории</span>
+                <span>Категорияләр</span>
             </a>
             <div class="dropdown-menu">
                 {#if $categories.fetching}
